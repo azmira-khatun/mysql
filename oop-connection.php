@@ -11,7 +11,7 @@
 $hostname="localhost";
 $user="root";
 $password="";
-$dbname="crud";
+$dbname="e_commerce";
 $conn=new mysqli($hostname,$user,$password,$dbname);
 
 // or
