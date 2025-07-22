@@ -10,15 +10,17 @@ $db=mysqli_connect("localhost","root","","table_users");
     <th>Id</th>
         <th>userName</th>
     <th>password</th>
+    <th>Delete</th>
 
 </tr>
 <?php
 $users=$db->query("select * from users");
-while(list($_id,$_name,$_password)=$users->fetch_row()){
+while(list($_id,$_name,$_password,$_delete)=$users->fetch_row()){
     echo "<tr>
     <td>$_id</td>
     <td>$_name</td>
     <td>$_password</td>
+    <td>$_delete</td>
 </td>";
 
 }
