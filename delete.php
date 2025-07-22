@@ -1,5 +1,5 @@
 <?php 
-$db = mysqli_connect('localhost','root','','crud-one');
+$db = mysqli_connect('localhost','root','','table_users');
 if (isset($_GET['deleteid'])){ 
     $delete_id = $_GET['deleteid'];
      $sql = "DELETE FROM  users WHERE id = $delete_id";
@@ -21,20 +21,19 @@ if (isset($_GET['deleteid'])){
 	<tr>
 		<th>ID</th>
 		<th>Name</th>
-		<th>email</th>
-		<th>Action</th>
+		<th>password</th>
+		<th>delete</th>
 	
 	</tr>
 	<?php 
 		$users = $db->query("select * from users");
-		while(list($_id,$_name,$_age,$_email,$contact) = $users->fetch_row()){
+		while(list($_id,$_name,$_password) = $users->fetch_row()){
 			echo "<tr> 
 						<td>$_id</td>
 						<td>$_name</td>
-						<td>$_age</td>
-						<td>$_email</td>
-						<td>$contact</td>
-						<td> 
+						<td>$_password</td>
+						
+						<td>
 							<a href='delete.php?deleteid=$_id'>
 								Delete
 							</a>
