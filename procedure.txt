@@ -77,3 +77,20 @@ WHERE c.car_name=c;*/
 END$$
 DELIMITER ;
 
+
+
+
+
+
+
+
+view
+drop view if exists view_product;
+create view view_product as select
+products.id,
+products.name,
+products.price,
+users.name manme,
+users.contact
+from products,users where users.id=p.user_id;
+
