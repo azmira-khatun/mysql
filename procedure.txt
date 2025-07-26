@@ -1,0 +1,65 @@
+DELIMITER $$
+CREATE PROCEDURE GetEmployee ()
+BEGIN
+select e.employee_name,e.email,e.hire_date,d.department_name,s.salary  FROM employee e
+JOIN department d ON d.department_id=e.employee_id
+JOIN salary s ON e.employee_id=s.salary_id
+WHERE e.employee_name='mira';    
+	
+END$$
+
+DELIMITER ; 
+
+
+
+
+DELIMITER $$
+CREATE PROCEDURE GetEmployeebyname (IN p_employee_name VARCHAR(100))
+BEGIN
+select e.employee_name,e.email,e.hire_date,d.department_name,s.salary  FROM employee e
+JOIN department d ON d.department_id=e.employee_id
+JOIN salary s ON e.employee_id=s.salary_id
+WHERE e.employee_name=p_employee_name;    
+	
+END$$
+DELIMITER ;
+
+
+CREATE TABLE tableName(department_id INT AUTO_INCREMENT PRIMARY KEY,
+department_name VARCHAR(100)NOT NULL);
+
+
+
+
+
+Insert INTO tableName({th}department_id,department_name)VALUES(1,'math'));
+
+
+ UPDATE tableName SET fieldName={new ta value ta dbo sata}'fieldValue' where id=id {condition id bad dea onno keso dla o  hy};
+
+
+
+
+DELATE FROM tableName Where condition (id=Id);
+
+
+
+
+
+
+DELIMITER $$
+CREATE PROCEDURE GETdriverBycar(IN c VARCHAR(100))
+BEGIN
+SELECT d.driver_name,d.gmail,d.hire_date,s.salary,c.car_name FROM drivers d 
+JOIN car c ON c.car_id=d.car_id 
+JOIN salary s ON d.driver_id=s.driver_id
+WHERE c.car_name=c;
+END$$
+DELIMITER ;
+
+
+
+SELECT * FROM car c
+LEFT JOIN drivers d ON d.car_id=c.car_id
+ORDER BY c.car_id ASC
+
