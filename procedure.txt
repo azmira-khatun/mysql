@@ -63,3 +63,17 @@ SELECT * FROM car c
 LEFT JOIN drivers d ON d.car_id=c.car_id
 ORDER BY c.car_id ASC
 
+
+
+
+
+DELIMITER $$
+CREATE PROCEDURE GETproductBYname(IN c VARCHAR(100))
+BEGIN
+SELECT p.id,p.name pname,p.price,b.name bname,b.email,b.contact FROM product p,brand b WHERE b.id=p.brand_id 
+/*JOIN car c ON c.car_id=d.car_id 
+JOIN salary s ON d.driver_id=s.driver_id
+WHERE c.car_name=c;*/
+END$$
+DELIMITER ;
+
