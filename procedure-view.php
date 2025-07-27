@@ -1,17 +1,29 @@
 <?php 
-$db = new mysqli('localhost','root','','company');
+$db = new mysqli('localhost','root','','company_db');
 
 if(isset($_POST['btnSubmit'])){
-	$mname = $_POST['mname'];
+	$name = $_POST['mname'];
+	$email=$_POST['email'];
 	$contact = $_POST['contact'];
-	$db->query(" call add_manufacture('$mname','$contact') ");
+	$db->query(" call catagori('$name','$email','$contact') ");
+
+
+
+
+if(!$db){
+	echo "not store";
+}else{
+	echo "data store";
 }
+}
+
 
 if(isset($_POST['addProduct'])){
 	$pname = $_POST['pname'];
 	$price = $_POST['price'];
-	$mid = $_POST['manufac'];
-	$db->query(" call add_product('$pname','$price','$mid') ");
+	$brandd=&$_POST['manufac'];
+	// $mid = $_POST['manufac'];
+	$db->query(" call GETproductBYname('$pname','$price','$brandd') ");
 }
 
 if(isset($_POST['delmanufact'])){
@@ -21,13 +33,17 @@ if(isset($_POST['delmanufact'])){
 
 
 ?>
-
-<h3>Manufacturer table</h3>
+<fieldset style="background-color:aqua;margin:10px auto; width: 150px;float:left;">
+<h3>BRAND table</h3>
 <form action="#" method="post">
 	<table>
 		<tr>
 			<td><label for="mname">Name</label></td>
 			<td><input type="text" name="mname" /></td>
+		</tr>
+		<tr>
+			<td><label for="email">Email</label></td>
+			<td><input type="text" name="email" /></td>
 		</tr>
 		<tr>
 			<td><label for="contact">Contact</label></td>
@@ -39,6 +55,9 @@ if(isset($_POST['delmanufact'])){
 		</tr>
 	</table>
 </form>
+</fieldset>
+
+<fieldset style="background-color:aqua;margin:10px auto; width: 120px;float:left;">
 
 <h3>Product table</h3>
 <form action="#" method="post">
@@ -52,13 +71,13 @@ if(isset($_POST['delmanufact'])){
 			<td><input type="text" name="price" /></td>
 		</tr>
 		<tr>
-			<td><label for="manufac">Manufacturer Name</label></td>
+			<td><label for="manufac">BRAND Name</label></td>
 			<td>
 				<select name="manufac">
 					<?php 
-						$manufac = $db->query("select * from manufacturer");
-						while(list($_mid,$_mname) = $manufac->fetch_row()){
-							echo "<option value='$_mid'>$_mname</option>";
+						$manufac = $db->query("select * from brand");
+						while(list($_brandd,$_name) = $manufac->fetch_row()){
+							echo "<option value='$_brandd'>$_name</option>";
 						}
 					?>
 				</select>
@@ -70,6 +89,8 @@ if(isset($_POST['delmanufact'])){
 		</tr>
 	</table>
 </form>
+</fieldset>
+
 <!-- after delete trigger -->
 <form action="#" method="post">
 	<table>
