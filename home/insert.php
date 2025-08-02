@@ -1,13 +1,22 @@
 <?php
 $db=new mysqli('localhost','root','','home_db');
 // SQL query
-$sql = "INSERT INTO manufacture (name, address,contact_no) VALUES ('Rahim', 'Dhaka',098765)";
+// $sql = "INSERT INTO manufacture (name, address,contact_no) VALUES ('Rahim', 'Dhaka',098765)";
 
 if(isset($_POST['btnSubmit'])){
-	$mname = $_POST['mname'];
-    $address=$_POST['address'];
-	$contact = $_POST['contact'];
-	$db->query(" CALL call_manufacture('$mname','$contact') ");
+	// $mname = $_POST['mname'];
+    // $address=$_POST['address'];
+	// $contact = $_POST['contact'];
+
+
+		$mname = 'Mira';
+    $address='Dhaka';
+	$contact ='19087';
+
+
+	$sql=" CALL call_manufacture('$mname','$address','$contact') ";
+
+	// $db->query(" CALL call_manufacture('$mname','$contact') ");
 
     // Run the query
 if (mysqli_query($db, $sql)) {
