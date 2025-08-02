@@ -1,0 +1,45 @@
+👥 User Roles
+Admin
+Login to Admin Dashboard
+Add/Edit/Delete Events
+Manage User Registrations
+View Feedbacks
+Generate Reports
+
+User/Participant
+Register/Login
+View Upcoming Events
+Register for Events
+Give Feedback
+Receive Confirmation (Email or UI)
+
+
+
+
+
+📂 Modules Description
+1. Authentication Module
+User and Admin login system
+Password encryption
+Session management
+
+2. Event Management Module
+Add/Edit/Delete Events
+Event types: Seminar, Workshop, Concert, etc.
+Set Date, Time, Venue, Capacity
+Upload Event Images/Posters
+
+3. User Registration Module
+Event-wise user registration
+Validation to prevent duplicate entries
+Auto confirmation display and optional email alert
+
+4. Feedback Module
+Collect feedback from attendees
+Rating system (1 to 5 stars)
+Display recent feedback for each event
+
+5. Reports Module (Admin)
+View registration counts per event
+Export reports (CSV, PDF optionally)
+Graphs/charts of participation (optional with Chart.js)
